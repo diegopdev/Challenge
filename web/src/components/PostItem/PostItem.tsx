@@ -29,11 +29,15 @@ const Title = styled.p`
 `
 
 
-const PostItem = () => {
+const PostItem = ({data}) => {
+    console.log(data)
+    const { userName, post, photo } = data
+    const {curtido, content} = post
     return(
         <Box
         border="solid 1px #DBDBDB"
         maxWidth="500px"
+        marginBottom={70}
         >
 
         <Box 
@@ -42,11 +46,11 @@ const PostItem = () => {
             justifyContent="space-between"
             padding="5px 20px"
         >
-            <StoryItem userName="Diego" isPost/>
+            <StoryItem userName={userName} photo={photo} isPost/>
             <FaPlus />
         </Box>
 
-            <Image src="http://pm1.narvii.com/6908/41c73b713f30b1194d3551ae3a048c8dcf4221d4r1-810-850v2_uhq.jpg" />
+            <Image src={post.photo} />
             
             <Row
             display="flex"
@@ -68,13 +72,13 @@ const PostItem = () => {
             <Row
             alignItems="center"
             padding="10px">
-                <ImageComents src="http://pm1.narvii.com/6908/41c73b713f30b1194d3551ae3a048c8dcf4221d4r1-810-850v2_uhq.jpg" />
+                <ImageComents src={curtido[0].photo} />
                 <Title>
-                    Curtido por <span>Diego Pereira </span>
+                    Curtido por <span>{` ${curtido[0].name}  `}</span>
                 </Title>
 
                 <Title>
-                    e <span>Outras 6 pessoas</span>
+                    e <span>{ ` Outras ${curtido.length} pessoas`} </span>
                 </Title>
             </Row>
 
@@ -82,9 +86,8 @@ const PostItem = () => {
             alignItems="center"
             padding="10px 10px 20px 10px">
                 <Title>
-                <span>Diego </span>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dignissim iaculis odio nec condimentum. Donec venenatis magna vitae volutpat sodales. Sed mollis porttitor nulla, ut venenatis massa elementum aliquam. Quisque eget
-                nibh auctor, aliquam odio nec, pulvinar velit. Nullam eu dolor pharetra, blandit justo vel, vulputate massa
+                <span>{`${userName} `}</span>
+                {content}
                 </Title>
             </Box>
             

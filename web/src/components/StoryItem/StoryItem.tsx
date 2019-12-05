@@ -45,7 +45,7 @@ const StoryItem = ({userName, photo, isPost}) => {
         display="flex"
         justifyContent="center"
         alignItems="center"
-        backgroundImage={userName && "linear-gradient(45deg, #ff0, #f00, #90c)"}
+        backgroundImage={userName  && !isPost && "linear-gradient(45deg, #ff0, #f00, #90c)"}
         >
             <Image isPost={isPost} src={photo}/>
             {

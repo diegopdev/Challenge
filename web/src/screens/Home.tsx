@@ -7,6 +7,7 @@ import Box from "../components/Box/Box";
 import PostItem from "../components/PostItem/PostItem";
 import StoryList from "../components/StoryList/StoryList";
 import Footer from "../components/Footer/Footer";
+import PostList from "../components/PostList/PostList";
 
 const Home = () => (
   <>
@@ -17,15 +18,18 @@ const Home = () => (
     justifyContent="flex-start"
     alignItems="center"
     overflow="auto hidden">
-    
     <StoryList />
+    </Box>
 
-    
-
+    <Box 
+    display="flex"
+    justifyContent="center"
+    alignItems="center"
+    flexDirection="column">
+      <PostList />
     </Box>
 
 
-    <PostItem />
     <Footer />
   
     
